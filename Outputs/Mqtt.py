@@ -1,4 +1,5 @@
 from paho.mqtt import client as mqtt
+import sys
 
 class Mqtt(object):
     def __init__(self, config):
@@ -24,6 +25,6 @@ class Mqtt(object):
 
         # for x, y in inverterDetails.items():
         client.publish(f"{self.mqtt_topic}/{name}", inverterDetails.items())
-        print(f"{self.mqtt_topic}/{name}///{inverterDetails.items()}", )
+        sys.stdout.write(f"{self.mqtt_topic}/{name}///{inverterDetails.items()}")
 
         client.disconnect()
