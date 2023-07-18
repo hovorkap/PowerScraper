@@ -26,7 +26,7 @@ class Mqtt(object):
 
         name = inverterDetails.pop('name', None)
         
-        values = json.dumps(inverterDetails.__dict__)
+        values = json.dumps({key: value for key, value in inverterDetails.items()})
 
         sys.stdout.write(f"{self.mqtt_topic}/{name}/{values}")
         # for x, y in inverterDetails.items():
