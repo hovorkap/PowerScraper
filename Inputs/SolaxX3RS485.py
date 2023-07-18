@@ -33,7 +33,7 @@ class SolaxX3RS485(object):
             return
 
         self.vals = {}
-        self.vals['name'] = self.port.replace("/dev/tty", "");
+        self.vals['name'] = self.port.replace("/solax/tty", "");
         self.vals['Pv1 input voltage'] = unsigned16(result, 0) / 10
         self.vals['Pv2 input voltage'] = unsigned16(result, 1) / 10
         self.vals['Pv1 input current'] = unsigned16(result, 2) / 10
