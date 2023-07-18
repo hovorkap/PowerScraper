@@ -24,6 +24,6 @@ class Mqtt(object):
 
         # for x, y in inverterDetails.items():
         client.publish(f"{self.mqtt_topic}/{name}", inverterDetails.items())
-        #            print(f"Publish topic:{self.mqtt_topic}/{x} - Value:{y}")
+        print(f"{self.mqtt_topic}/{name}///{inverterDetails.items()}", )
 
         client.disconnect()
