@@ -43,6 +43,7 @@ from Outputs.SolaxBatteryControl import SolaxBatteryControl
 from Outputs.EmonCMS import EmonCMS
 from Outputs.Influx2 import Influx2
 from Outputs.Console import Console
+from Outputs.Mqtt import Mqtt
 
 from twisted.internet.defer import setDebugging
 setDebugging(True)
@@ -99,6 +100,10 @@ if 'influx' in config:
 if 'console' in config:
     print("Setting up Console")
     outputs.append(Console(config['console']))
+
+if 'mqtt' in config:
+    print("Setting up Mqtt")
+    outputs.append(Mqtt(config['mqtt']))
 
 if 'Solax-BatteryControl' in config:
     print("Setting up Solax-BatteryControl")
