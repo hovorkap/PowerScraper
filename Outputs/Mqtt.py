@@ -13,7 +13,7 @@ class Mqtt(object):
         if rc != 0:
             print("Failed to connect, return code %d\n", rc)
 
-    def send(self, vals):
+    def send(self, vals, batteryAPI):
         client = mqtt.Client()
         client.username_pw_set(username=self.mqtt_user, password=self.mqtt_pass)
         client.connect(self.mqtt_host, self.mqtt_port, self.mqtt_keepalive)
