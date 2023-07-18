@@ -21,14 +21,12 @@ class Mqtt(object):
         client.connect(self.mqtt_host, self.mqtt_port, self.mqtt_keepalive)
 
         inverterDetails = vals.copy()
-        inverterDetails.pop('name', None)
         inverterDetails.pop('#SolaxClient', None)
-
-        name = inverterDetails.pop('name', None)
         
-        values = json.dumps({key: value for key, value in inverterDetails.items()})
-
-        sys.stdout.write(f"{self.mqtt_topic}/{name}/{values}")
+        dict = {key: value for key, value in inverterDetails.items()}
+        values = json.dumps(dict)
+        name = dict['name']
+        print(f"{self.mqtt_topic}/{name}", {values})
         # for x, y in inverterDetails.items():
         client.publish(f"{self.mqtt_topic}/{name}", values)
         
