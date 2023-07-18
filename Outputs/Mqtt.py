@@ -23,7 +23,7 @@ class Mqtt(object):
         inverterDetails.pop('name', None)
         inverterDetails.pop('#SolaxClient', None)
 
-        name = inverterDetails['name']
+        name = inverterDetails.items()['name']
         
         sys.stdout.write(f"{self.mqtt_topic}/{name}/{inverterDetails}")
         # for x, y in inverterDetails.items():
