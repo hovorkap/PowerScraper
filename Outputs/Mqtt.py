@@ -25,8 +25,9 @@ class Mqtt(object):
 
         name = inverterDetails['name']
         
+        sys.stdout.write(f"{self.mqtt_topic}/{name}/{inverterDetails}")
         # for x, y in inverterDetails.items():
-client.publish(f"{self.mqtt_topic}/{name}", inverterDetails)
-        sys.stdout.write(f"{self.mqtt_topic}/{name}///{inverterDetails}")
+        client.publish(f"{self.mqtt_topic}/{name}", inverterDetails)
+        
 
         client.disconnect()
