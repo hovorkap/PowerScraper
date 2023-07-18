@@ -19,11 +19,11 @@ class Mqtt(object):
         client.connect(self.mqtt_host, self.mqtt_port, self.mqtt_keepalive)
 
         inverterDetails = vals.copy()
-        inverterDetails.pop('Serial', None)
-        inverterDetails.pop('#SolaxClient', None)
+        name = inverterDetails.pop('name', None)
+        # inverterDetails.pop('#SolaxClient', None)
 
-        for x, y in inverterDetails.items():
-            client.publish(f"{self.mqtt_topic}/{x}", y)
+        # for x, y in inverterDetails.items():
+        client.publish(f"{self.mqtt_topic}/{name}", inverterDetails.items())
         #            print(f"Publish topic:{self.mqtt_topic}/{x} - Value:{y}")
 
         client.disconnect()
