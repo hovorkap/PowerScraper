@@ -16,3 +16,5 @@ A scraper for power devices to feed data to OpenEnergyMonitor
 # Prerequisites
 ```pip3 install pymodbus Twisted influxdb-client```
 
+Contains code from these projects:
+- https://github.com/leech001/hass-mqtt-discovery/
