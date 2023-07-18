@@ -42,6 +42,7 @@ from Inputs.SolaxX3RS485 import SolaxX3RS485
 from Outputs.SolaxBatteryControl import SolaxBatteryControl
 from Outputs.EmonCMS import EmonCMS
 from Outputs.Influx2 import Influx2
+from Outputs.Console import Console
 
 from twisted.internet.defer import setDebugging
 setDebugging(True)
@@ -94,6 +95,10 @@ if 'emoncms' in config:
 if 'influx' in config:
     print("Setting up Influx")
     outputs.append(Influx2(config['influx']))
+
+if 'console' in config:
+    print("Setting up Console")
+    outputs.append(Console(config['console']))
 
 if 'Solax-BatteryControl' in config:
     print("Setting up Solax-BatteryControl")
