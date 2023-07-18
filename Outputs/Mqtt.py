@@ -1,5 +1,6 @@
 from paho.mqtt import client as mqtt
 import sys
+import json
 
 class Mqtt(object):
     def __init__(self, config):
@@ -25,9 +26,11 @@ class Mqtt(object):
 
         name = inverterDetails.pop('name', None)
         
-        sys.stdout.write(f"{self.mqtt_topic}/{name}/{inverterDetails}")
+        values = json.dumps(inverterDetails.__dict__)
+
+        sys.stdout.write(f"{self.mqtt_topic}/{name}/{values}")
         # for x, y in inverterDetails.items():
-        client.publish(f"{self.mqtt_topic}/{name}", inverterDetails)
+        client.publish(f"{self.mqtt_topic}/{name}", values)
         
 
         client.disconnect()
